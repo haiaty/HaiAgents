@@ -1,6 +1,8 @@
 
 A simple ai agent framework
 
+It uses 'Luminous architecture', a variant of Lucid architecture with hexagonal architecture + functional programming concepts
+
 WORK IN PROGRESS:
 
 - actually:
