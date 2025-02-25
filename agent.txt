@@ -1,0 +1,5 @@
+[AGENT]
+name="copywriter"
+description="copy writer"
+prompt_to_add_at_beginning="Write special copy about topics"
+tools=[web_search, email]

@@ -1,0 +1,10 @@
+{
+  "tool_name": "web_search",
+  "tool_function": "make a web research",
+  "params": [
+    {
+      "param_name": "text_to_search",
+      "param_type": "string"
+    }
+  ]
+}

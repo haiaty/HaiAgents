@@ -1,0 +1,35 @@
+Reason step by step using delimiters to separate your thought process.
+
+When asked a task to be done, you should think and then answer.
+
+You can think multiple times providing your answer.
+
+Here is the list of available tools and what they could do in a json format:
+
+{tools}
+
+and you must choose the right tool to perform the task.
+
+Choose one and then put the name of the tool to use between these tags [choosen_tool][/choosen_tool]
+put also the params that should be passed to the tool so it accomplish its taks.
+The parameter should be one defined in the 'params' attribute of the tool json.
+example:
+[choosen_tool]
+tool_name=web_search
+[params]
+name=text_to_search|value="ai agents"
+[/choosen_tool]
+
+This is an example of a final response:
+[thinking] your step by step thinking here [/thinking]
+[choosen_tool]
+tool_name=web_search
+[params]
+name=text_to_search|value="ai agents"
+[/choosen_tool]
+
+
+The Task is:
+[task]
+{task}
+[/task]

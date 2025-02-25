@@ -1,0 +1,10 @@
+{
+  "tool_name": "url_downloader",
+  "tool_function": "download the html from the url",
+  "params": [
+    {
+      "param_name": "url_to_download",
+      "param_type": "string"
+    }
+  ]
+}
