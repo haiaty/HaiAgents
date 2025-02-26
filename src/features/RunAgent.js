@@ -2,6 +2,7 @@
 
 const path = require('path');
 const ReadContentFromFile = require("../jobs/filesystem/ReadContentFromFile");
+const WriteContentToFile = require("../jobs/filesystem/WriteContentToFile");
 
 const BuildToolsStringToAddOnPrompt = require("../jobs/agenttools/BuildToolsStringToAddOnPrompt");
 const ReplacePlaceholder = require("../jobs/strings/ReplacePlaceholder");
@@ -70,9 +71,6 @@ module.exports =  async function (agent) {
 
         let currentMessagePart = part.message.content;
 
-        if(finalResponse.includes('[/choosen_tool]')) {
-            console.log(finalResponse);
-        }
         process.stdout.write(part.message.content)
 
         finalResponse += currentMessagePart;
@@ -99,6 +97,28 @@ module.exports =  async function (agent) {
 
     console.log(toolResult);
 
+    //===========================
+    //  send task output to:
+    //===========================
+
+    if(agent.hasOwnProperty('send_task_output_to')) {
+
+        let sendTaskOutputTo = agent.send_task_output_to;
+
+        switch(sendTaskOutputTo.where) {
+            case "console":
+                console.log(toolResult);
+                break;
+            case "file":
+                let outputFilePath = sendTaskOutputTo.file_path;
+                WriteContentToFile(toolResult, outputFilePath);
+                break;
+            default:
+                console.log(toolResult);
+
+        }
+
+    }
 
 }
 
