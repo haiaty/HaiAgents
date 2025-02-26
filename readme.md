@@ -15,3 +15,8 @@ How to start:
 git clone 
 npm install
 node example.js
+
+
+# outputs
+
+'send_output_to': "email|stream|/path/file|next_agent"

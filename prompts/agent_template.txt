@@ -1,3 +1,8 @@
+Your task is to find the right tool to accomplish the following user task:
+
+{task}
+
+
 Reason step by step using delimiters to separate your thought process.
 
 When asked a task to be done, you should think and then answer.
@@ -8,28 +13,36 @@ Here is the list of available tools and what they could do in a json format:
 
 {tools}
 
-and you must choose the right tool to perform the task.
+and, as said, your task is choose the right tool to perform the task.
 
-Choose one and then put the name of the tool to use between these tags [choosen_tool][/choosen_tool]
+adds the following information to your reasoning. It is specific for the task I'm trying to solve.
+{from_semantic_search}
+
+{from_previous_agent}
+
+
+choose one tool and then put the name of the tool that you have choosen to use between these tags [choosen_tool][/choosen_tool]
 put also the params that should be passed to the tool so it accomplish its taks.
-The parameter should be one defined in the 'params' attribute of the tool json.
-example:
-[choosen_tool]
-tool_name=web_search
-[params]
-name=text_to_search|value="ai agents"
-[/choosen_tool]
 
-This is an example of a final response:
+
+Here is the structure a final response:
+
 [thinking] your step by step thinking here [/thinking]
 [choosen_tool]
+tool_name=<choosen_tool>
+[params]
+name=text_to_search|value="<choosen_value>"
+[/params]
+[/choosen_tool]
+
+and this is a final response example:
+[thinking] I choose this tool because.. [/thinking]
+[choosen_tool]
 tool_name=web_search
 [params]
 name=text_to_search|value="ai agents"
+[/params]
 [/choosen_tool]
 
 
-The Task is:
-[task]
-{task}
-[/task]
+Don't give a response without the choosen tool and without the params in the structure that is defined for the final response  because it would be useless.

@@ -4,19 +4,42 @@ const RunAgentAndStreamResponse = require('./src/features/RunAgentAndStreamRespo
 
 async function main() {
 
+    // 'find the top 5 latest news about AI development and send me a report
+
+    // call to tool
+
+    // tool to execute python script or nodejs snippet
+
+    //===========================
+    // Execute tool
+    //===========================
+    // let toolName = 'duckduckgo_search';
+    // let toolFileName = 'DuckDuckGoSearch';
+    // let toolFunction = require(`./tools/${toolName}/${toolFileName}`);
+    //
+    // await toolFunction({
+    //     'textToSearch': "latest news ai agents"
+    // });
+
+
+
     //===========================
     // agent
     //===========================
     let agent = {
         'name': 'myResearcher',
-        'agent_instruction': 'You are an expert on researching online',
-        'tools': ['web_search', 'url_downloader'],
+        'description': 'a researcher',
+        'instruction': 'You are an expert on researching online',
+        'tools': ['duckduckgo_search'],
         'llm_configs': {
             'provider': 'ollama',
-            'llm': 'llama3.2'
-        }
+            'llm': 'deepseek-r1:7b-qwen-distill-q8_0'
+        },
+        'task': 'find the top 5 latest news about nodejs',
+        'send_output_to': "console|email|stream|/path/file|next_agent"
     };
 
+    //  'llm': 'deepseek-r1:7b-qwen-distill-q8_0'
 
     await RunAgentAndStreamResponse(agent);
 

@@ -1,0 +1,28 @@
+Let's break down the problem step by step.
+
+ [task]
+{task}
+Task: Find information on "ai agents"
+[/task]
+
+[from_semantic_search]
+
+I want to use a tool that can perform semantic search, so I need to find a tool that is specifically designed for it.
+
+[thinking] Since the task involves finding information on ai agents, I should look for tools that are related to search or research. One option could be DuckDuckGo. It's a search engine that uses semantic search algorithms. [/thinking]
+
+[from_previous_agent]
+
+I've considered using DuckDuckGo before, but it doesn't seem like the best fit for this task. Let me think again.
+
+[thinking] I need a tool that is specifically designed for searching and can provide accurate results for "ai agents". I'll consider other options such as Google Scholar or ResearchGate, but they might not be available as tools in this format. DuckDuckGo could still be an option, but I want to make sure it's the best fit. [/thinking]
+
+[from_semantic_search]
+
+I've decided to use DuckDuckGo for this task.
+
+[choosen_tool]
+tool_name=duckduckgo_search
+[params]
+name=textToSearch|value="ai agents"
+[/choosen_tool]

@@ -1,5 +1,33 @@
 [AGENT]
 name="copywriter"
 description="copy writer"
-prompt_to_add_at_beginning="Write special copy about topics"
+instruction="Write special copy about topics"
 tools=[web_search, email]
+task="Write a copy for an ad"
+[/AGENT]
+
+
+[AGENT]
+name="data analyst1"
+description="a data analyst to analyse records from my table"
+instruction="Write special copy about topics"
+tools=[sql_read_table, email]
+task="Find strange records not fitting a {pattern} on database "
+[/AGENT]
+
+
+[AGENT]
+name="html parser"
+description="an expert on finding how would be better to parse an html to extract data"
+instruction="Write special copy about topics"
+tools=[html_text_extractor]
+task="Given an html, find the best way to extract texts from it and extract it"
+[/AGENT]
+
+[AGENT]
+name="math exercise generator"
+description=""
+instruction=""
+tools=[]
+task="generate math exercises and send an email with pdf "
+[/AGENT]

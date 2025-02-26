@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@langchain/community": "^0.3.32",
+    "duck-duck-scrape": "^2.2.7",
     "ollama": "^0.5.14",
     "redis": "^4.7.0"
   }
