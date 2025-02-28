@@ -7,6 +7,7 @@ const WriteContentToFile = require("../jobs/filesystem/WriteContentToFile");
 const BuildToolsStringToAddOnPrompt = require("../jobs/agenttools/BuildToolsStringToAddOnPrompt");
 const ReplacePlaceholder = require("../jobs/strings/ReplacePlaceholder");
 const ParseChoosenToolText = require("../jobs/agenttools/ParseChoosenToolText");
+const RunInference = require(path.join(process.cwd(),  'src', 'features', 'RunInference'));
 
 module.exports =  async function (agent) {
 
@@ -34,6 +35,11 @@ module.exports =  async function (agent) {
     //===========================
     agentPrompt = ReplacePlaceholder('{task}', agent.task, agentPrompt)
 
+    //===========================
+    // replace the state part
+    //===========================
+    agentPrompt = ReplacePlaceholder('{state_from_previous_agents}', agent.state, agentPrompt)
+
 
     //===========================
     // enrich prompt with semantic search
@@ -45,37 +51,22 @@ module.exports =  async function (agent) {
     //===========================
     // RunInference
     //===========================
-    let provider = agent.llm_configs.provider;
-
-    let runInferenceStrategy = null;
-
-    switch(provider) {
-        case "ollama":
-            runInferenceStrategy = require('./../../llmproviders/ollama/GetLlmResponseAsStream');
-            break;
-        default:
-            throw Error("we dont support this yet");
-    }
-
-
-
-    let result = await runInferenceStrategy(agentPrompt, agent.llm_configs);
-
+    let resultStream = await RunInference(agentPrompt, options.llm_configs);
 
     //===========================
     // output
     //===========================
 
     let finalResponse = '';
-    for await (const part of result) {
+    for await (const part of resultStream) {
 
         let currentMessagePart = part.message.content;
-
-        process.stdout.write(part.message.content)
-
         finalResponse += currentMessagePart;
     }
 
+    //===========================
+    // check output has the right structure
+    //===========================
     if( ! finalResponse.includes('[/choosen_tool]')) {
         console.log("the llm response does not contain the structure needed");
 
@@ -87,6 +78,8 @@ module.exports =  async function (agent) {
     let toolParseResults = ParseChoosenToolText(finalResponse);
 
     let toolName = toolParseResults.tool_name;
+    //@todo: put a check on the tool on the available tools. to find available tools do scandir on tools dir or generate a json containing the putput of the scandir of the dir 'tools'
+
     let toolParams = toolParseResults.tool_params;
 
     const toolPath = path.join(process.cwd(), 'tools', toolName, toolName);
@@ -97,28 +90,12 @@ module.exports =  async function (agent) {
 
     console.log(toolResult);
 
+
     //===========================
-    //  send task output to:
+    // return task result
     //===========================
+    return toolResult;
 
-    if(agent.hasOwnProperty('send_task_output_to')) {
-
-        let sendTaskOutputTo = agent.send_task_output_to;
-
-        switch(sendTaskOutputTo.where) {
-            case "console":
-                console.log(toolResult);
-                break;
-            case "file":
-                let outputFilePath = sendTaskOutputTo.file_path;
-                WriteContentToFile(toolResult, outputFilePath);
-                break;
-            default:
-                console.log(toolResult);
-
-        }
-
-    }
 
 }
 

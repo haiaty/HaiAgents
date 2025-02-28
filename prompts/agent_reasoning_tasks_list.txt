@@ -1,0 +1,21 @@
+Your task is to generate a step by step actions in order to do the following user task:
+
+"{task}"
+
+Each step MUST be an action that could be done with a single operation. It should be small and do only one thing, otherwise it is useless. In other words it MUST do one thing and one thing alone otherwise it would be useless and make me unhappy.
+
+The output must have this structure:
+[REASONING] here you must put your reasoning on why you have choosen these steps [/REASONING]
+[STEP_1]
+<specific task>
+[/STEP_1]
+[STEP_2]
+<specific task>
+[/STEP_2]
+....
+[STEP_N]
+<specific task>
+[/STEP_N]
+
+
+if the output don't have the expected output it is useless.

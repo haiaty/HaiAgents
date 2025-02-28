@@ -13,16 +13,17 @@ Here is the list of available tools and what they could do in a json format:
 
 {tools}
 
-and, as said, your task is choose the right tool to perform the task.
+and, as said, your task is to choose the right tool and the params to pass to the tool in order to perform the task.
 
 adds the following information to your reasoning. It is specific for the task I'm trying to solve.
 {from_semantic_search}
 
-{from_previous_agent}
+In order to choose the params to pass to the tool use these data:
+{state_from_previous_agents}
 
 
 choose one tool and then put the name of the tool that you have choosen to use between these tags [choosen_tool][/choosen_tool]
-put also the params that should be passed to the tool so it accomplish its taks.
+put also the params that should be passed to the tool inside [params][/params]
 
 
 Here is the structure a final response:
@@ -45,4 +46,5 @@ name=text_to_search|value="ai agents"
 [/choosen_tool]
 
 
-Don't give a response without the choosen tool and without the params in the structure that is defined for the final response  because it would be useless.
+Don't give a response without the choosen tool and without the params to pass to the tool like in the structure that is defined for the final response because it would be useless
+and I would be unhappy.

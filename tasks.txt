@@ -1,0 +1,22 @@
+
+
+"make a research about this token BTC"
+
+
+
+- get the project website from coingecko [coingecko_api] {description: "find info and metadata about crypto assets"}
+- find the website doing a research on search engine [duckduckgo_search]
+
+finish the first step
+
+- una volta trovato il link del sito. devo andare a prendere il testo dall'html dal sito per sapere di cosa fa [url_extractor]
+
+finisged second step
+
+- una volta che ho l'html devo parsarlo in modo da estrarre le informazioni che mi servono [html_text_extractor]
+
+finished third step
+
+- una volta che ho il testo pulito invio la mail [mail_sender]
+
+

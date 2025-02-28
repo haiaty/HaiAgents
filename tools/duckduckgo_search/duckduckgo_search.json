@@ -1,7 +1,7 @@
 {
   "tool_name": "duckduckgo_search",
   "tool_function": "search using duck duck go",
-  "params": [
+  "tools_input": [
     {
       "param_name": "textToSearch",
       "param_type": "string"
@@ -9,6 +9,12 @@
     {
       "param_name": "maxResults",
       "param_type": "integer"
+    }
+  ],
+  "tools_output": [
+    {
+      "output_name": "duckduck_go_results",
+      "output_type": "array"
     }
   ]
 }

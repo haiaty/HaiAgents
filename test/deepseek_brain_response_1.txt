@@ -1,0 +1,114 @@
+<think>
+Okay, so I need to figure out how to help this user who wants me to generate step-by-step actions for finding information about SOL and sending an email. The user has provided a specific structure they want, with each step being very atomic—each doing one thing alone.
+
+First, I should understand what SOL is. From my knowledge, SOL stands for Secure Operating Level, which is part of the Common Language Service (CLS) framework used by the U.S. Department of Defense. It categorizes information based on sensitivity and access restrictions. So, the user probably wants to gather detailed information about this topic.
+
+The user's task is two parts: researching SOL and then sending an email with that information. I need to break each part into specific steps without combining them.
+
+Starting with the research part:
+1. **Identify SOL requirements**: The first step should be determining what exactly needs to be known about SOL. This includes its definition, purpose, hierarchy, access controls, etc.
+2. **List sources for research**: Next, I need to figure out where reliable information can be found—manuals like DoD publications or reputable websites.
+3. **Gather information from sources**: Once the sources are identified, accessing and collecting relevant data is the next step.
+
+For the email part:
+4. **Prepare content**: After gathering all necessary info, structuring it into a coherent message with an objective summary makes sense.
+5. **Identify recipients**: Knowing who needs to receive the email—maybe superiors or specific contacts within their organization—is crucial.
+6. **Compose the email subject line**: The subject should clearly state the purpose of the email to ensure it's read and understood correctly.
+7. **Write the email body**: This includes the main content, explaining SOL in detail and providing all gathered information.
+8. **Ensure proper formatting and tone**: The email needs to be professional but clear, avoiding any markdown as per instructions.
+9. **Send the email**: Finally, after composing everything properly, sending it via a reliable method.
+
+Wait, but I need to make sure each step is atomic. Maybe some steps can be combined if they're part of a larger action. Let me review:
+
+- Step 1: Just identifying requirements—specific and alone.
+- Step 2: Listing sources—it's specific enough about sources without detailing the content.
+- Step 3: Gathering info from one source—could that be split? Maybe, but it's manageable as is.
+- Steps 4 to 9 follow logically for the email part.
+
+I think each step meets the requirement. Now, I should explain why each step was chosen. The reasoning would tie back to solving the user's problem comprehensively and efficiently without overlapping tasks.
+
+I also need to make sure that if any steps aren't clear or too broad, they might be adjusted. But as is, each step seems specific enough.
+</think>
+
+[REASONING]
+The task requires a structured approach to gather detailed information about SOL (Secure Operating Level) and communicate it effectively through an email. Each step must be atomic, focusing on one action to ensure clarity and efficiency.
+
+1. **Identify SOL requirements**
+   - Specific: Determine the key aspects of SOL needed for research.
+2. **List sources for research**
+   - Specific: Identify credible sources like DoD publications or websites.
+3. **Gather information from sources**
+   - Specific: Collect detailed data on SOL hierarchy and controls.
+4. **Prepare content for email**
+   - Specific: Structure the gathered info into a coherent message.
+5. **Identify recipients of the email**
+   - Specific: Determine who needs to receive the email.
+6. **Compose email subject line**
+   - Specific: Create a clear subject reflecting the SOL summary.
+7. **Write the email body**
+   - Specific: Craft detailed explanations and provide necessary info.
+8. **Ensure proper formatting and tone**
+   - Specific: Maintain professionalism while ensuring clarity.
+9. **Send the email via reliable method**
+   - Specific: Execute sending using a trusted platform.
+
+Each step is designed to address one part of the task, ensuring comprehensive coverage without overlap or ambiguity.
+
+---
+
+[STEP_1]
+Identify the specific SOL requirements you need to research (e.g., its definition, purpose, hierarchy, and access controls).
+
+[/STEP_1]
+[STEP_2]
+List credible sources where detailed information about SOL can be found, such as DoD publications or reputable websites.
+
+[/STEP_2]
+[STEP_3]
+Gather accurate and relevant information from one specified source on aspects like SOL's structure and access policies.
+
+[/STEP_3]
+[STEP_4]
+Prepare the content of your email with a clear, concise summary of SOL requirements and the gathered data.
+
+[/STEP_4]
+[STEP_5]
+Identify who should receive the email based on your organizational structure or project needs.
+
+[/STEP_5]
+[STEP_6]
+Compose an email subject line that clearly states the purpose of the email, such as "Summary of SOL Requirements."
+
+[/STEP_6]
+[STEP_7]
+Write the body of the email, explaining SOL in detail and providing all necessary information.
+
+[/STEP_7]
+[STEP_8]
+Format the email professionally, ensuring clarity and a clear tone without markdown.
+
+[/STEP_8]
+[STEP_9]
+Send the pre-composed and formatted email to the identified recipients using a reliable method (e.g., email client or service).
+
+[/STEP_9]Your task is to generate a step by step actions in order to do the following user task:
+
+"Find information about SOL and send me an email"
+
+Each step MUST be very specific and atomic. In other words it MUST do one thing and one thing alone otherwise it would be useless and make me unhappy.
+
+The output must have this structure:
+[REASONING] here you must put your reasoning on why you have choosen these steps [/REASONING]
+[STEP_1]
+<specific task>
+[/STEP_1]
+[STEP_2]
+<specific task>
+[/STEP_2]
+....
+[STEP_N]
+<specific task>
+[/STEP_N]
+
+
+if the output don't have the expected output it is useless.
