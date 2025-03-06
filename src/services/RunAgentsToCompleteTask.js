@@ -7,6 +7,7 @@ const ReplacePlaceholder = require(path.join(process.cwd(),  'src', 'jobs', 'str
 const RunInference = require(path.join(process.cwd(),  'src', 'features', 'RunInference'));
 const ParseSteps = require(path.join(process.cwd(),  'src', 'jobs', 'ParseSteps'));
 const RunAgent = require("../features/RunAgent");
+const EmitEvent = require(path.join(process.cwd(), 'src', 'jobs', 'EmitEvent'));
 
 
 module.exports =  async function (task, options) {
@@ -25,6 +26,9 @@ module.exports =  async function (task, options) {
     //===========================
     // run inference
     //===========================
+    await EmitEvent('[INFO] Brain agent prompt to be sent', {'brain_agent_prompt': brainAgentPrompt});
+
+    process.exit();
     let resultStream = await RunInference(brainAgentPrompt, options.llm_configs);
 
     //===========================
