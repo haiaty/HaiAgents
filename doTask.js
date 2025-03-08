@@ -10,7 +10,7 @@ const EmitEvent = require(path.join(process.cwd(), 'src', 'jobs', 'EmitEvent'));
 
 async function main() {
 
-    await EmitEvent('[ACTION] Run agents to complete task action started');
+    await EmitEvent('[info] Run agents to complete task action started');
 
     await RunAgentsToCompleteTask("Find information about SOL and send me an email",  {
         'llm_configs': {
