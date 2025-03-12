@@ -15,19 +15,23 @@ const db = new sqlite3.Database(DB_PATH, (err) => {
     }
 });
 
+function _run(sqlStatement){
+    return new Promise((resolve, reject) => {
+        db.run(sqlStatement, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+
+                resolve();
+            }
+        });
+    });
+}
+
 
 module.exports = {
     createTable: async function(tableCreateSql){
-        return new Promise((resolve, reject) => {
-            db.run(tableCreateSql, (err) => {
-                if (err) {
-                    reject(err);
-                } else {
-
-                    resolve();
-                }
-            });
-        });
+        return _run(tableCreateSql);
     },
     insert: async function (insertSql, params) {
         return new Promise((resolve, reject) => {
@@ -40,4 +44,9 @@ module.exports = {
             });
         });
     },
+    truncate: async function (tableName) {
+        let truncateStatement = `DELETE FROM ${tableName}`;
+        return _run(truncateStatement);
+    },
+
 };
