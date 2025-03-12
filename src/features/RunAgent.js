@@ -51,7 +51,7 @@ module.exports =  async function (agent) {
     //===========================
     // RunInference
     //===========================
-    let resultStream = await RunInference(agentPrompt, options.llm_configs);
+    let resultStream = await RunInference(agentPrompt, agent.llm_configs);
 
     //===========================
     // output

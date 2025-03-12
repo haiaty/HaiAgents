@@ -6,7 +6,7 @@ module.exports =  function (userChoice) {
 
     switch(userChoice) {
         case "redis":
-            vectorStore = require('../drivers/vectorstores/redis');
+            vectorStore = require('../drivers/redis');
             break;
         default:
             throw Error("This vector db is not supported");
