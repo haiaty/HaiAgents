@@ -15,20 +15,29 @@ module.exports =  async function (task, options) {
     //===========================
     // take the 'brain' template
     //===========================
+    await EmitEvent('[running] reading brain prompt');
+
     let reasoningPrompt = path.join(process.cwd(), 'prompts', 'agent_reasoning_tasks_list.txt')
     let brainAgentPrompt = ReadContentFromFile(reasoningPrompt);
+
+    await EmitEvent('[finished] brain prompt read', {prompt: brainAgentPrompt});
+
+
 
     //===========================
     // replace the tools part on the prompt string
     //===========================
+    await EmitEvent('[running] replacing task in initial prompt');
     brainAgentPrompt = ReplacePlaceholder('{task}', task, brainAgentPrompt);
+    await EmitEvent('[finished] task replaced on initial prompt', {prompt: brainAgentPrompt});
+
 
     //===========================
     // run inference
     //===========================
-    await EmitEvent('[INFO] Brain agent prompt to be sent', {'brain_agent_prompt': brainAgentPrompt});
+    await EmitEvent('[info] Brain agent prompt to be sent');
 
-    process.exit();
+
     let resultStream = await RunInference(brainAgentPrompt, options.llm_configs);
 
     //===========================
