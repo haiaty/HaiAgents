@@ -8,6 +8,7 @@ const RunInference = require(path.join(process.cwd(),  'src', 'features', 'RunIn
 const ParseSteps = require(path.join(process.cwd(),  'src', 'jobs', 'ParseSteps'));
 const RunAgent = require("../features/RunAgent");
 const EmitEvent = require(path.join(process.cwd(), 'src', 'jobs', 'EmitEvent'));
+const SaveInferenceDataForEvaluationJob = require(path.join(process.cwd(), 'src', 'jobs', 'SaveInferenceDataForEvaluation'));
 
 
 module.exports =  async function (task, options) {
@@ -49,6 +50,10 @@ module.exports =  async function (task, options) {
         let currentMessagePart = part.message.content;
         finalResponse += currentMessagePart;
     }
+    await EmitEvent('[finished] llm response stream consumed', {llm_output: finalResponse});
+
+    await SaveInferenceDataForEvaluationJob(options.llm_configs, brainAgentPrompt, finalResponse);
+
 
     //===========================
     // get the list of proposed tasks to do

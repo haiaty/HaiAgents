@@ -20,13 +20,15 @@ module.exports =  async function (prompt, llmconfigs) {
             throw Error("we dont support this yet");
     }
 
-    await EmitEvent('[finished] inference strategy defined', runInferenceStrategy);
+    await EmitEvent('[finished] inference strategy defined', runInferenceStrategy.name);
 
 
     //===========================
     // Comment here
     //===========================
+    await EmitEvent('[running] running inference', llmconfigs);
     let result = await runInferenceStrategy(prompt, llmconfigs);
+    await EmitEvent('[finished] got response stream from llm provider', llmconfigs);
 
     return result;
 

@@ -15,10 +15,17 @@ async function main() {
 
     await EmitEvent('[info] Run agents to complete task action started');
 
+    // await RunAgentsToCompleteTask("Find information about SOL and send me an email",  {
+    //     'llm_configs': {
+    //         'provider': 'ollama',
+    //         'llm': 'deepseek-r1:7b-qwen-distill-q8_0'
+    //     }
+    // });
+
     await RunAgentsToCompleteTask("Find information about SOL and send me an email",  {
         'llm_configs': {
             'provider': 'ollama',
-            'llm': 'deepseek-r1:7b-qwen-distill-q8_0'
+            'llm': 'llama3.2'
         }
     });
 
