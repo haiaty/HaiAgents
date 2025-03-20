@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@duckdb/node-api": "^1.2.1-alpha.16",
+    "@google/generative-ai": "^0.24.0",
     "@langchain/community": "^0.3.32",
     "duck-duck-scrape": "^2.2.7",
     "ollama": "^0.5.14",

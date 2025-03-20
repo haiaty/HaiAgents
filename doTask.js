@@ -18,14 +18,21 @@ async function main() {
     // await RunAgentsToCompleteTask("Find information about SOL and send me an email",  {
     //     'llm_configs': {
     //         'provider': 'ollama',
+    //         'llm': 'llama3.2:3b-instruct-q8_0'
+    //     }
+    // });
+
+    // await RunAgentsToCompleteTask("Find information about SOL and send me an email",  {
+    //     'llm_configs': {
+    //         'provider': 'ollama',
     //         'llm': 'deepseek-r1:7b-qwen-distill-q8_0'
     //     }
     // });
 
-    await RunAgentsToCompleteTask("Find information about SOL and send me an email",  {
+    await RunAgentsToCompleteTask("Find information about BTC and send me an email",  {
         'llm_configs': {
-            'provider': 'ollama',
-            'llm': 'llama3.2'
+            'provider': 'googlegemini',
+            'llm': 'gemini-2.0-flash'
         }
     });
 

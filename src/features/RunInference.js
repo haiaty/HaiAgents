@@ -16,6 +16,9 @@ module.exports =  async function (prompt, llmconfigs) {
         case "ollama":
             runInferenceStrategy = require('../../llmproviders/ollama/GetLlmResponseAsStream');
             break;
+        case "googlegemini":
+            runInferenceStrategy = require(path.join(process.cwd(), 'llmproviders', 'googlegemini', 'GetLlmResponseAsStream'));
+            break;
         default:
             throw Error("we dont support this yet");
     }
@@ -29,6 +32,7 @@ module.exports =  async function (prompt, llmconfigs) {
     await EmitEvent('[running] running inference', llmconfigs);
     let result = await runInferenceStrategy(prompt, llmconfigs);
     await EmitEvent('[finished] got response stream from llm provider', llmconfigs);
+
 
     return result;
 

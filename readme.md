@@ -7,6 +7,8 @@ WORK IN PROGRESS:
 
 - actually:
 uses ollama
+uses sqlite 
+log steps as events
 uses redis as vector db
 
 
